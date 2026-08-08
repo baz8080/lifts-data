@@ -1,0 +1,5 @@
+lift_status.db
+lift_status.db-wal
+lift_status.db-shm
+.poll.lock
+.write-test
