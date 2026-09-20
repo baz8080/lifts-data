@@ -22,3 +22,11 @@ jobs:
           gh api -X POST \
             repos/baz8080/lifts/actions/workflows/pages.yml/dispatches \
             -f ref=main
+      # Same token, now also Actions: write on baz8080/rail-delays - it reads
+      # these logs too and was otherwise stuck on two late crons for its cadence.
+      - env:
+          GH_TOKEN: ${{ secrets.SITE_BUILD_TOKEN }}
+        run: |
+          gh api -X POST \
+            repos/baz8080/rail-delays/actions/workflows/pages.yml/dispatches \
+            -f ref=main
